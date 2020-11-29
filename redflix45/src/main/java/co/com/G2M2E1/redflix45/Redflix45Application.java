@@ -8,7 +8,7 @@ public class Redflix45Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Redflix45Application.class, args);
-                System.out.println("Hello World");
+               // System.out.println("Hello World");
 	}
 
 }

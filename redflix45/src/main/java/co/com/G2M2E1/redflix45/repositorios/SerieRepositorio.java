@@ -6,6 +6,7 @@
 package co.com.G2M2E1.redflix45.repositorios;
 
 import co.com.G2M2E1.redflix45.modelos.Serie;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -14,4 +15,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface SerieRepositorio extends JpaRepository<Serie, Long>{
     
+    List<Serie> findByTituloSerie(String tituloSerie);
 }

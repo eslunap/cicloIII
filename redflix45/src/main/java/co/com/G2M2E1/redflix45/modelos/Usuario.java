@@ -6,6 +6,7 @@
 package co.com.G2M2E1.redflix45.modelos;
 
 import java.io.Serializable;
+import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -38,7 +39,10 @@ public class Usuario implements Serializable {
     private String celularUsuario;
     
     @Column (name= "contrasena_usuario")
-    private transient String password;
+    private String password;
+    
+    @Column (name ="fecha_nacimiento")
+     private Date fechaNacimiento;
 
     public String getIdUsername() {
         return idUsername;
@@ -50,6 +54,14 @@ public class Usuario implements Serializable {
 
     public String getNombreUsuario() {
         return nombreUsuario;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public void setNombreUsuario(String nombreUsuario) {
@@ -90,8 +102,9 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "Usuario{" + "idUsername=" + idUsername + ", nombreUsuario=" + nombreUsuario + ", apellidoUsuario=" + apellidoUsuario + ", emailUsuario=" + emailUsuario + ", celularUsuario=" + celularUsuario + ", password=" + password + '}';
+        return "Usuario{" + "idUsername=" + idUsername + ", nombreUsuario=" + nombreUsuario + ", apellidoUsuario=" + apellidoUsuario + ", emailUsuario=" + emailUsuario + ", celularUsuario=" + celularUsuario + ", password=" + password + ", fechaNacimiento=" + fechaNacimiento + '}';
     }
+
     
     
     

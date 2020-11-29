@@ -5,7 +5,6 @@
  */
 package co.com.G2M2E1.redflix45.modelos;
 
-import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

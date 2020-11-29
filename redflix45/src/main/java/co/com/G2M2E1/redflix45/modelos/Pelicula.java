@@ -8,6 +8,8 @@ package co.com.G2M2E1.redflix45.modelos;
 import java.time.Year;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -21,19 +23,64 @@ import javax.persistence.Table;
 public class Pelicula {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name ="id_pelicula")
     private Long idPelicula;
     
     @Column (name ="titulo_pelicula")
-    private Long tituloPelicula;
+    private String tituloPelicula;
     
     @Column (name ="resumen")
     private String resumen;
     
     @Column (name ="anio")
-    private Year anio;
+    private int anio;
     
     @Column (name ="nombre_director")
     private String nombre_director;
-    
+
+    public Long getIdPelicula() {
+        return idPelicula;
+    }
+
+    public void setIdPelicula(Long idPelicula) {
+        this.idPelicula = idPelicula;
+    }
+
+    public String getTituloPelicula() {
+        return tituloPelicula;
+    }
+
+    public void setTituloPelicula(String tituloPelicula) {
+        this.tituloPelicula = tituloPelicula;
+    }
+
+    public String getResumen() {
+        return resumen;
+    }
+
+    public void setResumen(String resumen) {
+        this.resumen = resumen;
+    }
+
+    public int getAnio() {
+        return anio;
+    }
+
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
+
+    public String getNombre_director() {
+        return nombre_director;
+    }
+
+    public void setNombre_director(String nombre_director) {
+        this.nombre_director = nombre_director;
+    }
+
+    @Override
+    public String toString() {
+        return "Pelicula{" + "idPelicula=" + idPelicula + ", tituloPelicula=" + tituloPelicula + ", resumen=" + resumen + ", anio=" + anio + ", nombre_director=" + nombre_director + '}';
+    }   
 }
