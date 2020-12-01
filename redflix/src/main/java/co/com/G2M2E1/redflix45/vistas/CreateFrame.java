@@ -16,6 +16,7 @@ public class CreateFrame extends javax.swing.JFrame {
     
     JPanelUsuario jpu = new JPanelUsuario();
     JPanelSerie jps = new JPanelSerie();
+    JPanelPeliculaC jpp = new JPanelPeliculaC();
     CardLayout vista;
     
     /**
@@ -107,6 +108,12 @@ public class CreateFrame extends javax.swing.JFrame {
                 SwingUtilities.updateComponentTreeUI(this);
                 this.repaint();
                 break;
+            case "Película":
+                jPanelCreate.add(jpp,"pelicula");
+                vista.show(jPanelCreate, "pelicula");
+                SwingUtilities.updateComponentTreeUI(this);
+                this.repaint();
+                break;
         }
     }//GEN-LAST:event_jComboBoxCreateActionPerformed
 
@@ -121,7 +128,7 @@ public class CreateFrame extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("FlatLaf Dark".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

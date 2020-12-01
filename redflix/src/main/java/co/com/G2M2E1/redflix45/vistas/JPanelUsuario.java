@@ -113,17 +113,17 @@ public class JPanelUsuario extends javax.swing.JPanel {
                     .addComponent(jTextFieldCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextFieldFechaNto, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel9))
                     .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(jButtonGuardarU)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonLimpiarCampos)
-                .addGap(31, 31, 31))
+                .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,10 +161,10 @@ public class JPanelUsuario extends javax.swing.JPanel {
                             .addComponent(jTextFieldFechaNto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9))))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonLimpiarCampos)
-                    .addComponent(jButtonGuardarU))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonGuardarU)
+                    .addComponent(jButtonLimpiarCampos))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -198,6 +198,7 @@ public class JPanelUsuario extends javax.swing.JPanel {
             }
         }catch(Exception e){
             System.out.println("Error al crear usuario");
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null,"Error al crear usuario","Warning",JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButtonGuardarUActionPerformed
@@ -211,6 +212,7 @@ public class JPanelUsuario extends javax.swing.JPanel {
                 caja.setText("");            
             }        
         }
+        jTextFieldAlias.requestFocus();
     }//GEN-LAST:event_jButtonLimpiarCamposActionPerformed
 
 
