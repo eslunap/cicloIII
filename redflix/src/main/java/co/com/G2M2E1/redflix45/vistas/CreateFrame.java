@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.com.G2M2E1.redflix45;
+package co.com.G2M2E1.redflix45.vistas;
 
-import co.com.G2M2E1.redflix45.vistas.JPanelSerie;
-import co.com.G2M2E1.redflix45.vistas.JPanelUsuario;
 import java.awt.CardLayout;
 import javax.swing.SwingUtilities;
 
@@ -37,9 +35,12 @@ public class CreateFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox<>();
         jComboBoxCreate = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jPanelCreate = new javax.swing.JPanel();
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Crear");
@@ -65,7 +66,6 @@ public class CreateFrame extends javax.swing.JFrame {
                 .addContainerGap(103, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
                         .addComponent(jComboBoxCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12))
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -146,6 +146,7 @@ public class CreateFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBoxCreate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelCreate;

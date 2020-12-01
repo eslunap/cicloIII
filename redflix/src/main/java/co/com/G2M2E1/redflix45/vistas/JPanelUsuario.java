@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package co.com.G2M2E1.redflix45.vistas;
+
 import co.com.G2M2E1.redflix45.SpringContext;
 import co.com.G2M2E1.redflix45.modelos.Usuario;
 import co.com.G2M2E1.redflix45.repositorios.UsuarioRepositorio;

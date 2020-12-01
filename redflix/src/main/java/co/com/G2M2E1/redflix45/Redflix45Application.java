@@ -1,5 +1,6 @@
 package co.com.G2M2E1.redflix45;
 
+import co.com.G2M2E1.redflix45.vistas.RedflixFrame;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
