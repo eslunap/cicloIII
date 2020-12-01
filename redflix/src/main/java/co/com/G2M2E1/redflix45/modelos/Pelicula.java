@@ -5,7 +5,6 @@
  */
 package co.com.G2M2E1.redflix45.modelos;
 
-import java.time.Year;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,7 +36,7 @@ public class Pelicula {
     private int anio;
     
     @Column (name ="nombre_director")
-    private String nombre_director;
+    private String nombreDirector;
 
     public Long getIdPelicula() {
         return idPelicula;
@@ -72,15 +71,15 @@ public class Pelicula {
     }
 
     public String getNombre_director() {
-        return nombre_director;
+        return nombreDirector;
     }
 
     public void setNombre_director(String nombre_director) {
-        this.nombre_director = nombre_director;
+        this.nombreDirector = nombre_director;
     }
 
     @Override
     public String toString() {
-        return "Pelicula{" + "idPelicula=" + idPelicula + ", tituloPelicula=" + tituloPelicula + ", resumen=" + resumen + ", anio=" + anio + ", nombre_director=" + nombre_director + '}';
+        return  "Titulo Pelicula: " + tituloPelicula + "\n resumen: " + resumen + ", año: " + anio+"\n";
     }   
 }

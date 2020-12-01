@@ -25,6 +25,8 @@ public class CreateFrame extends javax.swing.JFrame {
     public CreateFrame() {
         initComponents();
         vista = (CardLayout) jPanelCreate.getLayout();
+        jPanelCreate.add(jpu,"usuario");
+                vista.show(jPanelCreate, "usuario");
     }
 
     /**
@@ -46,7 +48,7 @@ public class CreateFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Crear");
 
-        jComboBoxCreate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccionar-", "Usuario", "Serie", "Película" }));
+        jComboBoxCreate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Serie", "Película" }));
         jComboBoxCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxCreateActionPerformed(evt);

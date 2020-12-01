@@ -176,17 +176,18 @@ public class JPanelUsuario extends javax.swing.JPanel {
     private void jButtonGuardarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarUActionPerformed
         // TODO add your handling code here:
         try{
-
-            Optional <Usuario> usuarios =  usuarioRepositorio.findById(jTextFieldAlias.getText());
-            if (!usuarios.isEmpty()){
-                System.out.println("Lo sentimos el usuario no se encuentra disponible");
-                JOptionPane.showMessageDialog(null,"Lo sentimos el usuario no se encuentra disponible","Warning",JOptionPane.WARNING_MESSAGE);
-            }else{
+            String alias = jTextFieldAlias.getText();
+            
+            Optional <Usuario> optional =  usuarioRepositorio.findById(jTextFieldAlias.getText());
+            if (alias.isEmpty()){
+                System.out.println("No ha digitado un alias");
+                JOptionPane.showMessageDialog(null,"No ha digitado nombre de usuario","Warning",JOptionPane.WARNING_MESSAGE);
+            }else if(!optional.isPresent()){
                 Usuario u = new Usuario();
                 u.setIdUsername(jTextFieldAlias.getText());
                 u.setNombreUsuario(jTextFieldNombre.getText());
                 u.setApellidoUsuario(jTextFieldApellido.getText());
-                u.setCelularUsuario(jTextFieldCelular.getText());
+                u.setCelularUsuario(Long.parseLong(jTextFieldCelular.getText()));
                 u.setEmailUsuario(jTextFieldEmail.getText());
                 u.setPassword(new String(jPasswordField1.getPassword()));
                 u.setFechaNacimiento(jTextFieldFechaNto.getText());
@@ -194,7 +195,8 @@ public class JPanelUsuario extends javax.swing.JPanel {
                 jTextFieldAlias.requestFocus();
                 System.out.println("Se registró exitosamente el usuario: "+ u.getIdUsername());
                 JOptionPane.showMessageDialog(null, "Se registró exitosamente el usuario: "+ u.getIdUsername(),"Mensaje",JOptionPane.INFORMATION_MESSAGE);
-                
+            }else{
+                JOptionPane.showMessageDialog(null,"El alias se encuentra en uso","Warning",JOptionPane.WARNING_MESSAGE);
             }
         }catch(Exception e){
             System.out.println("Error al crear usuario");

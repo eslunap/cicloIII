@@ -8,8 +8,13 @@ package co.com.G2M2E1.redflix45.vistas;
 import co.com.G2M2E1.redflix45.SpringContext;
 import co.com.G2M2E1.redflix45.modelos.Pelicula;
 import co.com.G2M2E1.redflix45.repositorios.PeliculaRepositorio;
+import java.util.List;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.SpinnerModel;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
 
 /**
  *
@@ -18,16 +23,19 @@ import javax.swing.JTextField;
 public class JPanelPeliculaR extends javax.swing.JPanel {
 
     PeliculaRepositorio peliculaRepositorio;
+    DefaultListModel listModel = new DefaultListModel();
+    SimpleAttributeSet attribs = new SimpleAttributeSet();
+        
     /**
      * Creates new form JPanelPelicula
      */
     public JPanelPeliculaR() {
         initComponents();
         peliculaRepositorio = SpringContext.getBean(PeliculaRepositorio.class);
-        jTextFieldAnno.setEnabled(false);
-        jTextAreaResumen.setEnabled(false);
-        jLabelInfoTitulo.setVisible(false);
+        //jLabelInfoTitulo.setVisible(false);
         jLabelInfoDirector.setVisible(false);
+        jTextFieldNombreDir.setEnabled(false);
+        jrbTitulo.setSelected(true);
     }
 
     /**
@@ -39,35 +47,31 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaResumen = new javax.swing.JTextArea();
+        btnGroupTipoConsulta = new javax.swing.ButtonGroup();
         jTextFieldPelicula = new javax.swing.JTextField();
         jTextFieldNombreDir = new javax.swing.JTextField();
-        jTextFieldAnno = new javax.swing.JTextField();
         jButtonGuardarP = new javax.swing.JButton();
         jButtonLimpiarCampos = new javax.swing.JButton();
         jPanelTipoConsulta = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jLabel5 = new javax.swing.JLabel();
+        jrbTitulo = new javax.swing.JRadioButton();
+        jrbNombreDir = new javax.swing.JRadioButton();
         jLabelInfoTitulo = new javax.swing.JLabel();
         jLabelInfoDirector = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jListPeliculas = new javax.swing.JList<>();
+        jtfAnno = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jtpResumen = new javax.swing.JTextPane();
+        jSpinnerPeliculas = new javax.swing.JSpinner();
 
-        jLabel1.setText("Título Película");
+        jTextFieldPelicula.setBorder(javax.swing.BorderFactory.createTitledBorder("Título película"));
+        jTextFieldPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPeliculaActionPerformed(evt);
+            }
+        });
 
-        jLabel2.setText("Año de estreno");
-
-        jLabel3.setText("Nombre Director");
-
-        jLabel4.setText("Resumen");
-
-        jTextAreaResumen.setColumns(20);
-        jTextAreaResumen.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaResumen);
+        jTextFieldNombreDir.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre director"));
 
         jButtonGuardarP.setText("Consultar");
         jButtonGuardarP.addActionListener(new java.awt.event.ActionListener() {
@@ -83,123 +87,141 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
             }
         });
 
-        jPanelTipoConsulta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelTipoConsulta.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultar por:"));
 
-        jRadioButton1.setText("Título");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnGroupTipoConsulta.add(jrbTitulo);
+        jrbTitulo.setText("Título");
+        jrbTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                jrbTituloActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("Nombre Director");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnGroupTipoConsulta.add(jrbNombreDir);
+        jrbNombreDir.setText("Nombre Director");
+        jrbNombreDir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                jrbNombreDirActionPerformed(evt);
             }
         });
-
-        jLabel5.setText("Consultar por:");
 
         javax.swing.GroupLayout jPanelTipoConsultaLayout = new javax.swing.GroupLayout(jPanelTipoConsulta);
         jPanelTipoConsulta.setLayout(jPanelTipoConsultaLayout);
         jPanelTipoConsultaLayout.setHorizontalGroup(
             jPanelTipoConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTipoConsultaLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel5)
-                .addGap(95, 95, 95)
-                .addComponent(jRadioButton1)
-                .addGap(59, 59, 59)
-                .addComponent(jRadioButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTipoConsultaLayout.createSequentialGroup()
+                .addContainerGap(65, Short.MAX_VALUE)
+                .addComponent(jrbTitulo)
+                .addGap(58, 58, 58)
+                .addComponent(jrbNombreDir)
+                .addGap(59, 59, 59))
         );
         jPanelTipoConsultaLayout.setVerticalGroup(
             jPanelTipoConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTipoConsultaLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTipoConsultaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelTipoConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jLabel5))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jrbTitulo)
+                    .addComponent(jrbNombreDir))
+                .addContainerGap())
         );
 
+        jLabelInfoTitulo.setFont(new java.awt.Font("Dialog", 2, 10)); // NOI18N
         jLabelInfoTitulo.setText("Ingrese título");
 
+        jLabelInfoDirector.setFont(new java.awt.Font("Dialog", 2, 10)); // NOI18N
         jLabelInfoDirector.setText("Ingrese Nombre Director");
+
+        jListPeliculas.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultados"));
+        jListPeliculas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jListPeliculas.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListPeliculasValueChanged(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jListPeliculas);
+
+        jtfAnno.setBorder(javax.swing.BorderFactory.createTitledBorder("Año"));
+
+        jScrollPane3.setBorder(javax.swing.BorderFactory.createTitledBorder("Resumen"));
+        jScrollPane3.setViewportView(jtpResumen);
+
+        jSpinnerPeliculas.setModel(new javax.swing.SpinnerListModel(new String[] {"Item 0", "Item 1", "Item 2", "Item 3"}));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(54, 54, 54)
+                .addComponent(jPanelTipoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel1))
-                                .addGap(29, 29, 29)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldAnno, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldNombreDir, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabelInfoDirector, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(33, 33, 33)
-                                                .addComponent(jLabelInfoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                            .addComponent(jPanelTipoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(44, 44, 44)
+                                .addComponent(jLabelInfoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jTextFieldPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelInfoDirector, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldNombreDir, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
+                        .addGap(78, 78, 78)
                         .addComponent(jButtonGuardarP)
                         .addGap(83, 83, 83)
-                        .addComponent(jButtonLimpiarCampos)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButtonLimpiarCampos))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtfAnno, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane3))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(jSpinnerPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addContainerGap()
                 .addComponent(jPanelTipoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextFieldPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelInfoTitulo))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextFieldNombreDir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelInfoTitulo)
                     .addComponent(jLabelInfoDirector))
-                .addGap(18, 18, 18)
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextFieldAnno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jTextFieldPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNombreDir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(20, 20, 20)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jtfAnno, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(jSpinnerPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonGuardarP)
                     .addComponent(jButtonLimpiarCampos))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarCamposActionPerformed
         // TODO add your handling code here:
+        btnGroupTipoConsulta.clearSelection();
         JTextField caja;
         for (int i = 0; i< this.getComponentCount();i++){
             if(this.getComponent(i).getClass().getName().equals("javax.swing.JTextField")){
@@ -207,59 +229,121 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
                 caja.setText("");            
             }        
         }
-        jTextAreaResumen.setText("");
-        jTextFieldPelicula.requestFocus();
+        jtpResumen.setText("");
+        listModel.clear();
+        jListPeliculas.setModel(listModel);
+        jrbTitulo.setSelected(true);
     }//GEN-LAST:event_jButtonLimpiarCamposActionPerformed
 
     private void jButtonGuardarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarPActionPerformed
         // TODO add your handling code here
-        try{
-            Pelicula p = new Pelicula();
-            p.setTituloPelicula(jTextFieldPelicula.getText());
-            p.setResumen(jTextAreaResumen.getText());
-            p.setAnio(Integer.parseInt(jTextFieldAnno.getText()));
-            p.setNombre_director(jTextFieldNombreDir.getText());
-            peliculaRepositorio.save(p);
-            System.out.println("Se registró correctamente la película "+ p.getTituloPelicula());
-            JOptionPane.showMessageDialog(null, "Se registró correctamente la película "+ p.getTituloPelicula(),"Mensaje",JOptionPane.INFORMATION_MESSAGE);
-        }catch(Exception e){
-            System.out.println("Error al crear película");
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"Error al crear película","Warning",JOptionPane.WARNING_MESSAGE);
+         
+        if (jrbTitulo.isSelected()){
+            try{
+                List<Pelicula> peliculas = peliculaRepositorio.findByTituloPelicula(jTextFieldPelicula.getText());
+                if (!peliculas.isEmpty()){
+                    for (Pelicula p : peliculas) {
+                        System.out.println(p.toString());
+                        listModel.addElement(p.getTituloPelicula());
+                        jtfAnno.setText(String.valueOf(p.getAnio()));
+                        StyleConstants.setAlignment(attribs , StyleConstants.ALIGN_JUSTIFIED);
+                        jtpResumen.setParagraphAttributes(attribs,true);
+                        jtpResumen.setText(p.getResumen());
+                        jTextFieldNombreDir.setText(p.getNombre_director());
+                    }
+                    //jSpinnerPeliculas.setModel((SpinnerModel) listModel);
+                    jListPeliculas.setModel(listModel);
+                }else{
+                    System.out.println("La pelicula que busca no fue encontrada");
+                }
+            }catch(Exception e){
+                System.out.println("Error al consultar película");
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null,"Error al consultar película","Error",JOptionPane.WARNING_MESSAGE);
+            }
+            jTextFieldPelicula.requestFocus();
         }
-        jTextFieldPelicula.requestFocus();
+        if (jrbNombreDir.isSelected()){
+           
+            try{
+                List<Pelicula> peliculas = peliculaRepositorio.findByNombreDirector(jTextFieldNombreDir.getText());
+                if (!peliculas.isEmpty()){
+                    for (Pelicula p : peliculas) {
+                        System.out.println(p.toString());
+                        listModel.addElement(p.getTituloPelicula());   
+                    }
+//                    jTextFieldPelicula.setText(peliculas.get(0).getTituloPelicula());
+//                    jtfAnno.setText(String.valueOf(peliculas.get(0).getAnio()));
+//                    jtpResumen.setText(peliculas.get(0).getResumen());
+                    jListPeliculas.setModel(listModel);                    
+                }else{
+                    System.out.println("El director que busca no fue encontrado");
+                    JOptionPane.showMessageDialog(null,"El director que busca no fue encontrado","Error",JOptionPane.WARNING_MESSAGE);
+                }
+            }catch(Exception e){
+                System.out.println("Error al consultar película");
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null,"Error al consultar director","Error",JOptionPane.WARNING_MESSAGE);
+            }
+            jTextFieldNombreDir.requestFocus();
+        }
     }//GEN-LAST:event_jButtonGuardarPActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void jrbTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbTituloActionPerformed
         // TODO add your handling code here:
+        jTextFieldPelicula.setEnabled(true);
+        jTextFieldPelicula.requestFocus();
         jLabelInfoDirector.setVisible(false);
         jLabelInfoTitulo.setVisible(true);
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+        jTextFieldNombreDir.setEnabled(false);
+    }//GEN-LAST:event_jrbTituloActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void jrbNombreDirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbNombreDirActionPerformed
         // TODO add your handling code here:
+        jTextFieldNombreDir.setEnabled(true);
+        jTextFieldNombreDir.requestFocus();
         jLabelInfoTitulo.setVisible(false);
         jLabelInfoDirector.setVisible(true);
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+        jTextFieldPelicula.setEnabled(false);
+        
+    }//GEN-LAST:event_jrbNombreDirActionPerformed
+
+    private void jTextFieldPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPeliculaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPeliculaActionPerformed
+
+    private void jListPeliculasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListPeliculasValueChanged
+        // TODO add your handling code here:
+        if (jrbNombreDir.isSelected()){
+             List<Pelicula> peliculas = peliculaRepositorio.findByTituloPelicula(jListPeliculas.getSelectedValue());
+                if (!peliculas.isEmpty()){
+                jtfAnno.setText(String.valueOf(peliculas.get(0).getAnio()));
+                jtpResumen.setText(peliculas.get(0).getResumen());
+                jTextFieldPelicula.setText(peliculas.get(0).getTituloPelicula());
+                jTextFieldNombreDir.setEnabled(true);
+             }else{
+                    System.out.println("La pelicula que busca no fue encontrada");
+                }
+        }
+    }//GEN-LAST:event_jListPeliculasValueChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup btnGroupTipoConsulta;
     private javax.swing.JButton jButtonGuardarP;
     private javax.swing.JButton jButtonLimpiarCampos;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelInfoDirector;
     private javax.swing.JLabel jLabelInfoTitulo;
+    private javax.swing.JList<String> jListPeliculas;
     private javax.swing.JPanel jPanelTipoConsulta;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextAreaResumen;
-    private javax.swing.JTextField jTextFieldAnno;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSpinner jSpinnerPeliculas;
     private javax.swing.JTextField jTextFieldNombreDir;
     private javax.swing.JTextField jTextFieldPelicula;
+    private javax.swing.JRadioButton jrbNombreDir;
+    private javax.swing.JRadioButton jrbTitulo;
+    private javax.swing.JTextField jtfAnno;
+    private javax.swing.JTextPane jtpResumen;
     // End of variables declaration//GEN-END:variables
 }

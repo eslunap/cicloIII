@@ -36,7 +36,7 @@ public class Usuario implements Serializable {
     private String emailUsuario;
     
     @Column (name = "celular_usuario")
-    private String celularUsuario;
+    private Long celularUsuario;
     
     @Column (name= "contrasena_usuario")
     private String password;
@@ -84,11 +84,11 @@ public class Usuario implements Serializable {
         this.emailUsuario = emailUsuario;
     }
 
-    public String getCelularUsuario() {
+    public Long getCelularUsuario() {
         return celularUsuario;
     }
 
-    public void setCelularUsuario(String celularUsuario) {
+    public void setCelularUsuario(Long celularUsuario) {
         this.celularUsuario = celularUsuario;
     }
 
