@@ -6,6 +6,7 @@
 package co.com.G2M2E1.redflix45.vistas;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import javax.swing.SwingUtilities;
 
 /**
@@ -24,7 +25,10 @@ public class ReadFrame extends javax.swing.JFrame {
      */
     public ReadFrame() {
         initComponents();
+        this.getContentPane().setBackground(Color.white);
         vista = (CardLayout) jPanelRead.getLayout();
+        jPanelRead.add(jpu,"usuario");
+        vista.show(jPanelRead, "usuario");
     }
 
     /**
@@ -39,6 +43,7 @@ public class ReadFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jComboBoxRead = new javax.swing.JComboBox<>();
         jPanelRead = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consultar");
@@ -46,7 +51,7 @@ public class ReadFrame extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         jLabel1.setText("Menú Consultas");
 
-        jComboBoxRead.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccionar-", "Usuario", "Serie", "Película" }));
+        jComboBoxRead.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Serie", "Película" }));
         jComboBoxRead.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxReadActionPerformed(evt);
@@ -61,24 +66,26 @@ public class ReadFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(185, 185, 185)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jComboBoxRead, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addContainerGap(166, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanelRead, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(jSeparator1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(151, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jComboBoxRead, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(144, 144, 144))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jComboBoxRead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jPanelRead, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -94,19 +101,19 @@ public class ReadFrame extends javax.swing.JFrame {
             jPanelRead.add(jpu,"usuario");
             vista.show(jPanelRead, "usuario");
             SwingUtilities.updateComponentTreeUI(this);
-            this.repaint();
+            //this.repaint();
             break;
             case "Serie":
             jPanelRead.add(jps,"serie");
             vista.show(jPanelRead, "serie");
             SwingUtilities.updateComponentTreeUI(this);
-            this.repaint();
+            //this.repaint();
             break;
             case "Película":
             jPanelRead.add(jpp,"pelicula");
             vista.show(jPanelRead, "pelicula");
             SwingUtilities.updateComponentTreeUI(this);
-            this.repaint();
+            //this.repaint();
             break;
         }
     }//GEN-LAST:event_jComboBoxReadActionPerformed
@@ -150,5 +157,6 @@ public class ReadFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxRead;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelRead;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

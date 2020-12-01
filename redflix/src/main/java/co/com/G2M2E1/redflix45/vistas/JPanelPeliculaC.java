@@ -8,16 +8,19 @@ package co.com.G2M2E1.redflix45.vistas;
 import co.com.G2M2E1.redflix45.SpringContext;
 import co.com.G2M2E1.redflix45.modelos.Pelicula;
 import co.com.G2M2E1.redflix45.repositorios.PeliculaRepositorio;
-import co.com.G2M2E1.redflix45.repositorios.SerieRepositorio;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
 
 /**
  *
  * @author ESLUNAP
  */
 public class JPanelPeliculaC extends javax.swing.JPanel {
-
+    
+    SimpleAttributeSet attribs = new SimpleAttributeSet();
+    
     PeliculaRepositorio peliculaRepositorio;
     /**
      * Creates new form JPanelPelicula
@@ -25,6 +28,10 @@ public class JPanelPeliculaC extends javax.swing.JPanel {
     public JPanelPeliculaC() {
         initComponents();
         peliculaRepositorio = SpringContext.getBean(PeliculaRepositorio.class);
+        StyleConstants.setAlignment(attribs , StyleConstants.ALIGN_JUSTIFIED);
+        jtpResumen.setParagraphAttributes(attribs,true);
+        
+        
     }
 
     /**
@@ -36,29 +43,21 @@ public class JPanelPeliculaC extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaResumen = new javax.swing.JTextArea();
         jTextFieldPelicula = new javax.swing.JTextField();
         jTextFieldNombreDir = new javax.swing.JTextField();
         jTextFieldAnno = new javax.swing.JTextField();
         jButtonGuardarP = new javax.swing.JButton();
         jButtonLimpiarCampos = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtpResumen = new javax.swing.JTextPane();
 
-        jLabel1.setText("Título Película");
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setText("Año de estreno");
+        jTextFieldPelicula.setBorder(javax.swing.BorderFactory.createTitledBorder("Título película"));
 
-        jLabel3.setText("Nombre Director");
+        jTextFieldNombreDir.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre Director"));
 
-        jLabel4.setText("Resumen");
-
-        jTextAreaResumen.setColumns(20);
-        jTextAreaResumen.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaResumen);
+        jTextFieldAnno.setBorder(javax.swing.BorderFactory.createTitledBorder("Año"));
 
         jButtonGuardarP.setText("Crear");
         jButtonGuardarP.addActionListener(new java.awt.event.ActionListener() {
@@ -74,60 +73,44 @@ public class JPanelPeliculaC extends javax.swing.JPanel {
             }
         });
 
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Resumen"));
+        jScrollPane1.setViewportView(jtpResumen);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel4))
-                                .addGap(22, 22, 22)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldPelicula)
-                                    .addComponent(jTextFieldNombreDir)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextFieldAnno, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 84, Short.MAX_VALUE))))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jButtonGuardarP)
-                        .addGap(38, 38, 38)
-                        .addComponent(jButtonLimpiarCampos)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonGuardarP)
+                .addGap(38, 38, 38)
+                .addComponent(jButtonLimpiarCampos)
+                .addGap(34, 34, 34))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+                    .addComponent(jTextFieldNombreDir)
+                    .addComponent(jTextFieldPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldAnno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextFieldPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addComponent(jTextFieldPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextFieldNombreDir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextFieldAnno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addComponent(jLabel4)
+                .addComponent(jTextFieldNombreDir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jTextFieldAnno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonGuardarP)
                     .addComponent(jButtonLimpiarCampos))
-                .addGap(25, 25, 25))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -140,7 +123,7 @@ public class JPanelPeliculaC extends javax.swing.JPanel {
                 caja.setText("");            
             }        
         }
-        jTextAreaResumen.setText("");
+        jtpResumen.setText("");
         jTextFieldPelicula.requestFocus();
     }//GEN-LAST:event_jButtonLimpiarCamposActionPerformed
 
@@ -149,7 +132,7 @@ public class JPanelPeliculaC extends javax.swing.JPanel {
         try{
             Pelicula p = new Pelicula();
             p.setTituloPelicula(jTextFieldPelicula.getText());
-            p.setResumen(jTextAreaResumen.getText());
+            p.setResumen(jtpResumen.getText());
             p.setAnio(Integer.parseInt(jTextFieldAnno.getText()));
             p.setNombre_director(jTextFieldNombreDir.getText());
             peliculaRepositorio.save(p);
@@ -167,14 +150,10 @@ public class JPanelPeliculaC extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonGuardarP;
     private javax.swing.JButton jButtonLimpiarCampos;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextAreaResumen;
     private javax.swing.JTextField jTextFieldAnno;
     private javax.swing.JTextField jTextFieldNombreDir;
     private javax.swing.JTextField jTextFieldPelicula;
+    private javax.swing.JTextPane jtpResumen;
     // End of variables declaration//GEN-END:variables
 }

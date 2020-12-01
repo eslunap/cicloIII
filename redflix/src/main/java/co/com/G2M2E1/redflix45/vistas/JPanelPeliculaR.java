@@ -36,6 +36,10 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
         jLabelInfoDirector.setVisible(false);
         jTextFieldNombreDir.setEnabled(false);
         jrbTitulo.setSelected(true);
+        jtpResumen.setEnabled(false);
+        jtfAnno.setEnabled(false);
+        StyleConstants.setAlignment(attribs , StyleConstants.ALIGN_JUSTIFIED);
+        jtpResumen.setParagraphAttributes(attribs,true);
     }
 
     /**
@@ -62,7 +66,8 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
         jtfAnno = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jtpResumen = new javax.swing.JTextPane();
-        jSpinnerPeliculas = new javax.swing.JSpinner();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jTextFieldPelicula.setBorder(javax.swing.BorderFactory.createTitledBorder("Título película"));
         jTextFieldPelicula.addActionListener(new java.awt.event.ActionListener() {
@@ -87,8 +92,10 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
             }
         });
 
+        jPanelTipoConsulta.setBackground(new java.awt.Color(255, 255, 255));
         jPanelTipoConsulta.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultar por:"));
 
+        jrbTitulo.setBackground(new java.awt.Color(255, 255, 255));
         btnGroupTipoConsulta.add(jrbTitulo);
         jrbTitulo.setText("Título");
         jrbTitulo.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +104,7 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
             }
         });
 
+        jrbNombreDir.setBackground(new java.awt.Color(255, 255, 255));
         btnGroupTipoConsulta.add(jrbNombreDir);
         jrbNombreDir.setText("Nombre Director");
         jrbNombreDir.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +118,7 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
         jPanelTipoConsultaLayout.setHorizontalGroup(
             jPanelTipoConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTipoConsultaLayout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jrbTitulo)
                 .addGap(58, 58, 58)
                 .addComponent(jrbNombreDir)
@@ -146,8 +154,6 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
         jScrollPane3.setBorder(javax.swing.BorderFactory.createTitledBorder("Resumen"));
         jScrollPane3.setViewportView(jtpResumen);
 
-        jSpinnerPeliculas.setModel(new javax.swing.SpinnerListModel(new String[] {"Item 0", "Item 1", "Item 2", "Item 3"}));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -182,9 +188,7 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtfAnno, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane3))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jSpinnerPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,18 +208,13 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jtfAnno, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(jSpinnerPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(9, 9, 9)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonGuardarP)
                     .addComponent(jButtonLimpiarCampos))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -246,12 +245,9 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
                         System.out.println(p.toString());
                         listModel.addElement(p.getTituloPelicula());
                         jtfAnno.setText(String.valueOf(p.getAnio()));
-                        StyleConstants.setAlignment(attribs , StyleConstants.ALIGN_JUSTIFIED);
-                        jtpResumen.setParagraphAttributes(attribs,true);
                         jtpResumen.setText(p.getResumen());
                         jTextFieldNombreDir.setText(p.getNombre_director());
                     }
-                    //jSpinnerPeliculas.setModel((SpinnerModel) listModel);
                     jListPeliculas.setModel(listModel);
                 }else{
                     System.out.println("La pelicula que busca no fue encontrada");
@@ -338,7 +334,6 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
     private javax.swing.JPanel jPanelTipoConsulta;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSpinner jSpinnerPeliculas;
     private javax.swing.JTextField jTextFieldNombreDir;
     private javax.swing.JTextField jTextFieldPelicula;
     private javax.swing.JRadioButton jrbNombreDir;

@@ -6,6 +6,7 @@
 package co.com.G2M2E1.redflix45.vistas;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import javax.swing.SwingUtilities;
 
 /**
@@ -26,7 +27,8 @@ public class CreateFrame extends javax.swing.JFrame {
         initComponents();
         vista = (CardLayout) jPanelCreate.getLayout();
         jPanelCreate.add(jpu,"usuario");
-                vista.show(jPanelCreate, "usuario");
+        vista.show(jPanelCreate, "usuario");
+        this.getContentPane().setBackground(Color.white);
     }
 
     /**
@@ -42,12 +44,16 @@ public class CreateFrame extends javax.swing.JFrame {
         jComboBoxCreate = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jPanelCreate = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Crear");
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLocation(new java.awt.Point(100, 100));
 
+        jComboBoxCreate.setBackground(new java.awt.Color(255, 255, 255));
         jComboBoxCreate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Serie", "Película" }));
         jComboBoxCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,11 +83,13 @@ public class CreateFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanelCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(jSeparator1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jComboBoxCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -159,5 +167,6 @@ public class CreateFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxCreate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelCreate;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
