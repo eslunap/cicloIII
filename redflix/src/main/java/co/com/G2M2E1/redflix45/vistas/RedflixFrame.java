@@ -138,6 +138,7 @@ public class RedflixFrame extends javax.swing.JFrame {
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
         // TODO add your handling code here:
+        new DeleteFrame().setVisible(true);
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
     /**

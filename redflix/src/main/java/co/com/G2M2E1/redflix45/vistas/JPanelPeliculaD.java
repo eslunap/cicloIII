@@ -20,7 +20,7 @@ import javax.swing.text.StyleConstants;
  *
  * @author ESLUNAP
  */
-public class JPanelPeliculaR extends javax.swing.JPanel {
+public class JPanelPeliculaD extends javax.swing.JPanel {
 
     PeliculaRepositorio peliculaRepositorio;
     DefaultListModel listModel = new DefaultListModel();
@@ -29,7 +29,7 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
     /**
      * Creates new form JPanelPelicula
      */
-    public JPanelPeliculaR() {
+    public JPanelPeliculaD() {
         initComponents();
         peliculaRepositorio = SpringContext.getBean(PeliculaRepositorio.class);
         //jLabelInfoTitulo.setVisible(false);
@@ -78,7 +78,7 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
 
         jTextFieldNombreDir.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre director"));
 
-        jButtonGuardarP.setText("Consultar");
+        jButtonGuardarP.setText("Eliminar");
         jButtonGuardarP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGuardarPActionPerformed(evt);
@@ -93,7 +93,7 @@ public class JPanelPeliculaR extends javax.swing.JPanel {
         });
 
         jPanelTipoConsulta.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelTipoConsulta.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultar por:"));
+        jPanelTipoConsulta.setBorder(javax.swing.BorderFactory.createTitledBorder("Eliminar por:"));
 
         jrbTitulo.setBackground(new java.awt.Color(255, 255, 255));
         btnGroupTipoConsulta.add(jrbTitulo);
