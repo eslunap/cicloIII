@@ -15,13 +15,13 @@ import javax.swing.JTextField;
  *
  * @author ESLUNAP
  */
-public class JPanelSerie extends javax.swing.JPanel {
+public class JPanelSerieC extends javax.swing.JPanel {
 
     SerieRepositorio serieRepositorio;
     /**
      * Creates new form JPanelSerie
      */
-    public JPanelSerie() {
+    public JPanelSerieC() {
         initComponents();
         serieRepositorio = SpringContext.getBean(SerieRepositorio.class);
     }

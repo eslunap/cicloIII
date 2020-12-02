@@ -16,7 +16,7 @@ import javax.swing.SwingUtilities;
 public class DeleteFrame extends javax.swing.JFrame {
 
     JPanelUsuarioD jpu = new JPanelUsuarioD();
-    JPanelSerie jps = new JPanelSerie();
+    JPanelSerieC jps = new JPanelSerieC();
     JPanelPeliculaD jpp = new JPanelPeliculaD();
     CardLayout vista;
     

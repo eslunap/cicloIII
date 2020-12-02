@@ -15,8 +15,8 @@ import javax.swing.SwingUtilities;
  */
 public class ReadFrame extends javax.swing.JFrame {
 
-    JPanelUsuario jpu = new JPanelUsuario();
-    JPanelSerie jps = new JPanelSerie();
+    JPanelUsuarioC jpu = new JPanelUsuarioC();
+    JPanelSerieC jps = new JPanelSerieC();
     JPanelPeliculaR jpp = new JPanelPeliculaR();
     CardLayout vista;
     

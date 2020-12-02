@@ -15,8 +15,8 @@ import javax.swing.SwingUtilities;
  */
 public class CreateFrame extends javax.swing.JFrame {
     
-    JPanelUsuario jpu = new JPanelUsuario();
-    JPanelSerie jps = new JPanelSerie();
+    JPanelUsuarioC jpu = new JPanelUsuarioC();
+    JPanelSerieC jps = new JPanelSerieC();
     JPanelPeliculaC jpp = new JPanelPeliculaC();
     CardLayout vista;
     

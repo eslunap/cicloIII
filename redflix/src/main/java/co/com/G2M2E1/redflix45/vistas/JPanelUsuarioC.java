@@ -16,13 +16,13 @@ import javax.swing.JTextField;
  *
  * @author ESLUNAP
  */
-public class JPanelUsuario extends javax.swing.JPanel {
+public class JPanelUsuarioC extends javax.swing.JPanel {
 
      UsuarioRepositorio usuarioRepositorio;
     /**
      * Creates new form JPanelUsuario
      */
-    public JPanelUsuario() {
+    public JPanelUsuarioC() {
         initComponents();
         usuarioRepositorio = SpringContext.getBean(UsuarioRepositorio.class);
     }
